@@ -13,20 +13,24 @@ public class Subscriber implements Observer
 {
     @Override
     public void handleEvent(AllUnits unit) {
-        try(FileInputStream fs = new FileInputStream(new File("\\src\\main\\resources\\sounds\\fan.mp3")))
-        {
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(fs);
+        try {
+            File soundFile = new File("C:\\Users\\Laplass\\IdeaProjects\\LabChap\\src\\main\\resources\\sounds\\fanfare.wav"); //Звуковой файл
+
+            AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
+
             Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
-            System.out.print(String.format("{0} is dead. ", unit.getName()));
+
+            clip.open(ais);
+
+            clip.setFramePosition(0);
+            clip.start();
+
             Thread.sleep(500);
-
-            audioStream.close();
-
-        }
-        catch (Exception e)
-        {
+            clip.stop();
+            clip.close();
+        } catch (Exception e) {
             e.printStackTrace();
+
         }
     }
 }

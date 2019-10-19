@@ -44,11 +44,11 @@ public class ClericUnit extends Unit implements SpecialAction, Healing
     @Override
     public String getInfo()
     {
-        return super.getInfo() + String.format(", strength - {0}", getStrength());
+        return super.getInfo() + String.format(", strength: %d", getStrength());
     }
 
     @Override
-    public AllUnits clone() {
+    public AllUnits copy() {
         return new ClericUnit(this);
     }
 

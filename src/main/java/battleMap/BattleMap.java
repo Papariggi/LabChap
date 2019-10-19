@@ -2,6 +2,7 @@ package battleMap;
 
 import army.Army;
 import strategy.AllStrategies;
+import strategy.OneOnOneStrategy;
 import units.*;
 import units.observer.Subscriber;
 
@@ -25,7 +26,11 @@ public class BattleMap
     public BattleMap(Army firstArmy, Army secondArmy) {
         setFirstArmy(firstArmy);
         setSecondArmy(secondArmy);
+        strategy = new OneOnOneStrategy();
+        subscriber = new Subscriber();
     }
+
+    private BattleMap() {}
 
     public void subscribe() {
         for (AllUnits unit : firstArmy.getArmy()) {
@@ -65,18 +70,17 @@ public class BattleMap
             AllUnits attacker = firstLineInFirst.get(i);
             AllUnits target = firstLineInSecond.get(i);
 
-            currentMoveInfo += String.format("\n\nArmy {0}. {1}\n\n vs. \n\nArmy {2}. {3}",
+            currentMoveInfo += String.format("\n\nArmy %s. %s    ***vs.***   Army %s. %s",
                     first.getName(), attacker.getInfo(), second.getName(), target.getInfo());
-            AllUnits dead = attacker.fight(target);
+            AllUnits unitAfterFight = attacker.fight(target);
 
-            if (dead != null)
-            {
-                currentMoveInfo += String.format("\n\nArmy {0}. {1} dead.\n", second.getName(), dead.getName());
-                dead.notifyObs();
-                second.remove(dead);
+            if (unitAfterFight.getHealth() == 0) {
+                currentMoveInfo += String.format("\n\nArmy %s. %s is dead.\n", second.getName(), unitAfterFight.getName());
+                unitAfterFight.notifyObs();
+                second.remove(unitAfterFight);
             }
             else
-                currentMoveInfo += String.format("\n\nArmy {0}. {1} attacked.\n", second.getName(), target.getInfo());
+                currentMoveInfo += String.format("\nArmy %s. %s was attacked.\n", second.getName(), unitAfterFight.getInfo());
         }
     }
 
@@ -117,75 +121,77 @@ public class BattleMap
 
             int targetIndex = rndm.nextInt(targets.size());
 
-            AllUnits beforeSpecial = targets.get(targetIndex).clone();
+            AllUnits beforeSpecial = targets.get(targetIndex).copy();
             AllUnits afterSpecial = specials.get(specialIndex).
                     doSpecialAction(targets.get(targetIndex));
 
             currentMoveInfo += "\nSpecial action.";
 
             if (specials.get(specialIndex) instanceof BowmanUnit) {
-                currentMoveInfo += String.format("\n\nArmy {0}. {1} in opposition \n\nArmy {2}. {3}",
-                        first.getName(), ((AllUnits)specials.get(specialIndex)).getInfo(), second.getName(),
-                        beforeSpecial.getInfo());
+                if (afterSpecial != null) {
+                    currentMoveInfo += String.format("\n\nArmy %s. %s    ******critical damage******    to Army %s. %s",
+                            first.getName(), ((AllUnits)specials.get(specialIndex)).getInfo(), second.getName(),
+                            beforeSpecial.getInfo());
 
-                if (afterSpecial == specials.get(specialIndex)) {
-                    currentMoveInfo += String.format("\n\nArmy {0}. {1} dead.\n", second.getName(),
-                            ((BowmanUnit) specials.get(specialIndex)).getInfo());
+                if (afterSpecial.getHealth() == 0) {
+                    currentMoveInfo += String.format("\n\nArmy %s. %s dead.\n", second.getName(),
+                            afterSpecial.getInfo());
                     afterSpecial.notifyObs();
                     second.remove(afterSpecial);
                 }
                 else
-                    currentMoveInfo += String.format("\n\nArmy {0}. {1} attacked\n", second.getName(),
-                            ((BowmanUnit) specials.get(specialIndex)).getInfo());
+                    currentMoveInfo += String.format("\n\nArmy %s. %s got critical damage\n", second.getName(),
+                            afterSpecial.getInfo());
             }
             else if (specials.get(specialIndex) instanceof ClericUnit) {
                 if (afterSpecial != null) {
-                    currentMoveInfo += String.format("\nArmy {0}. {1}\n\n\t healing \n\nArmy {2}. {3}",
+                    currentMoveInfo += String.format("\n\nArmy %s. %s ******healing******* Army %s. %s\n",
                             first.getName(), ((ClericUnit) specials.get(specialIndex)).getInfo(), first.getName(),
                             beforeSpecial.getInfo());
-                    currentMoveInfo += String.format("\n\nArmy {0}. {1} healed\n", first.getName(),
-                            ((ClericUnit) specials.get(specialIndex)).getInfo());
+                    currentMoveInfo += String.format("\n\nArmy %s. %s healed\n", first.getName(),
+                            (afterSpecial.getInfo()));
                 }
                 else {
-                    currentMoveInfo += String.format("\n\nNo one was cured from the army {0}. ", first.getName());
+                    currentMoveInfo += String.format("\n\nNo one was healed from the army %s. ", first.getName());
                 }
             }
             else if (specials.get(specialIndex) instanceof WizardUnit) {
                 if (afterSpecial != null) {
-                    currentMoveInfo += String.format("\nАrmy {0}. {1}\n\n\t cloning \n\nАrmy {2}. {3}",
+                    currentMoveInfo += String.format("\nАrmy %s. %s    *****cloning*****   Аrmy %s. %s\n",
                             first.getName(), ((WizardUnit) specials.get(specialIndex)).getInfo(), first.getName(),
                             beforeSpecial.getInfo());
-                    currentMoveInfo += String.format("\n\nАrmy {0}. {1} cloned.\n", first.getName(),
-                            ((WizardUnit) specials.get(specialIndex)).getInfo());
+                    currentMoveInfo += String.format("\n\nАrmy %s. %s was cloned.\n", first.getName(),
+                            afterSpecial.getInfo());
                 }
                 else {
-                    currentMoveInfo += String.format("\n\nNo one was cloned from the army {0}.\n", first.getName());
+                    currentMoveInfo += String.format("\n\nNo one was cloned from the army %s.\n", first.getName());
                 }
             }
             else if (specials.get(specialIndex) instanceof LightUnit) {
                     if (afterSpecial != null) {
-                        currentMoveInfo += String.format("\nArmy {0}. {1}\n\n\t dressing \n\nArmy {2}. {3}",
+                        currentMoveInfo += String.format("\n\nArmy %s. %s     ****dressing****      Army %s. %s",
                                 first.getName(), ((LightUnit) specials.get(specialIndex)).getInfo(), first.getName(),
                                 beforeSpecial.getInfo());
-                        currentMoveInfo += String.format("\n\nArmy {0}. {1} dressed.\n", first.getName(),
-                                ((LightUnit) specials.get(specialIndex)).getInfo());
+                        currentMoveInfo += String.format("\n\nArmy %s. %s was dressed.\n", first.getName(),
+                                (afterSpecial.getInfo()));
                     }
                     else {
-                        currentMoveInfo += String.format("\n\nNo one was dressed from the army {0}. ", first.getName());
+                        currentMoveInfo += String.format("\n\nNo one was dressed from the army %s. ", first.getName());
                     }
                 }
             }
         }
+    }
 
     public void move()
     {
         if (isEnd())
         {
-            currentMoveInfo = "Game over. ";
+            currentMoveInfo = "Game is over. ";
             return;
         }
 
-        currentMoveInfo = "\nBattle. ";
+        currentMoveInfo = "\n\n----------Battle------------";
 
         armyVsArmy(firstArmy, secondArmy);
         armyVsArmy(secondArmy, firstArmy);
@@ -219,8 +225,10 @@ public class BattleMap
         }
     }
 
-    public void setEnd(boolean end) {
-        this.end = end;
+
+    public String getArmiesInfo() {
+        return String.format("%s\n\n vs. \n\n%s",
+                strategy.getInfo(firstArmy), strategy.getInfo(secondArmy));
     }
 
     public String getAllGameInfo() {

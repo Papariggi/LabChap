@@ -49,9 +49,9 @@ public class OneOnOneStrategy extends Strategy
 
     @Override
     public String getInfo(Army army) {
-        String info = String.format("Army {0}:", army.getName());
+        String info = String.format("Army %s:", army.getName());
         for (int i = 1; i <= army.size(); i++)
-            info += String.format("\n{0}. {1}", i, army.get(i - 1).getInfo());
+            info += String.format("\n%d. %s", i, army.get(i - 1).getInfo());
 
         return info;
     }

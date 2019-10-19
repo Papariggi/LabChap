@@ -19,14 +19,14 @@ public class HeavyUnitProxy extends HeavyUnit implements Cloneable
 
     @Override
     public AllUnits fight(AllUnits unit) {
-        String info = String.format("Battle. {0} x {1}. ",
+        String info = String.format("Battle. %s x %s. ",
                 getInfo(), unit.getInfo());
         AllUnits afterFight = heavyUnit.fight(unit);
 
-        if(afterFight == null)
+        if(afterFight.getHealth() == 0)
             info += "Opponent has died. ";
         else
-            info += String.format("After fight: {0} .", unit.getInfo());
+            info += String.format("After fight: %s .", unit.getInfo());
 
         log(info);
         return afterFight;
@@ -46,7 +46,7 @@ public class HeavyUnitProxy extends HeavyUnit implements Cloneable
     }
 
     @Override
-    public AllUnits clone() {
+    public AllUnits copy() {
         return new HeavyUnitProxy(this);
     }
 

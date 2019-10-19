@@ -30,7 +30,7 @@ public class HeavyUnit extends Unit
 
 
     @Override
-    public AllUnits clone()
+    public AllUnits copy()
     {
         return new HeavyUnit(this);
     }

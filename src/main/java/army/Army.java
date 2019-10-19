@@ -6,12 +6,11 @@ import java.util.Stack;
 
 public class Army
 {
-    private Stack<AllUnits> army;
+    private Stack<AllUnits> army  = new Stack<>();
     private String name;
 
     public Army(String name)
     {
-        army = new Stack<>();
         setName(name);
     }
 
@@ -20,7 +19,7 @@ public class Army
         setName(copiedArmy.getName());
 
         for (AllUnits unit : copiedArmy.getArmy()) {
-            army.push(unit.clone());
+            army.push(unit.copy());
         }
     }
 

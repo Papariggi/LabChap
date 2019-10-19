@@ -1,4 +1,4 @@
-package Command;
+package command;
 
 import battleMap.BattleMap;
 
@@ -21,22 +21,24 @@ public class Invoker
        redoStack.clear();
    }
 
-    public void undo()
-    {
+    public void undo() {
         AllCommands commands = redoStack.pop();
         commands.undo();
         redoStack.push(commands);
     }
 
-    public void redo()
-    {
+    public void redo() {
         AllCommands commands = redoStack.pop();
         commands.redo();
         redoStack.push(commands);
     }
 
-    public void move()
-    {
+    public void move() {
         invoke(new OnlyOneMoveCommand(battleMap));
+    }
+
+    public void playToTheEnd()
+    {
+        invoke(new PlayToEndCommand(battleMap));
     }
 }

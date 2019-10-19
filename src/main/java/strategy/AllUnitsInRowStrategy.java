@@ -84,12 +84,12 @@ public class AllUnitsInRowStrategy extends Strategy
 
     @Override
     public String getInfo(Army army) {
-        String info = String.format("Army {0}:", army.getName());
+        String info = String.format("Army %s:", army.getName());
         for (int j = 0; j < getRowCount(); j++)
         {
-            info += String.format("\nRow {0}:", j + 1);
+            info += String.format("\nRow %d:", j + 1);
             for (int line = 1, i = army.size() - getRowCount() + j; i >= 0; line++, i -= getRowCount())
-                info += String.format("\nLine {0}. {1}", line, army.get(i).getInfo());
+                info += String.format("\nLine %d. %s", line, army.get(i).getInfo());
         }
         return info;
     }

@@ -4,10 +4,10 @@ package units;
 import units.observer.Observer;
 import units.observer.ObserverManager;
 
-public interface AllUnits extends Cloneable, ObserverManager
+public interface AllUnits extends ObserverManager
 {
     AllUnits fight(AllUnits unit);
-    AllUnits clone();
+    AllUnits copy();
     String getInfo();
     String getName();
     int getHealth();

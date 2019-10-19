@@ -1,6 +1,5 @@
-package Command;
+package command;
 
-import army.Army;
 import battleMap.BattleMap;
 
 public class OnlyOneMoveCommand extends Command

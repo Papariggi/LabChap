@@ -82,13 +82,13 @@ public class LightUnit extends Unit implements SpecialAction, Healing, Copied
     }
 
     @Override
-    public AllUnits clone() {
+    public AllUnits copy() {
         return new LightUnit(this);
     }
 
     @Override
-    public AllUnits Copy() {
-        return null;
+    public AllUnits clone() {
+        return new LightUnit(this);
     }
 
     @Override

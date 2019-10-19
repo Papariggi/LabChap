@@ -36,7 +36,7 @@ public class BowmanUnit extends Unit implements SpecialAction, Healing, Copied
             return this;
 
         unit.setArmor(unit.getArmor() - getStrength());
-        if (unit.getArmor() > 0) {
+        if (unit.getArmor() < 0) {
             unit.setHealth(unit.getHealth() + unit.getArmor());
             unit.setArmor(0);
         }
@@ -47,16 +47,16 @@ public class BowmanUnit extends Unit implements SpecialAction, Healing, Copied
     @Override
     public String getInfo()
     {
-        return super.getInfo() + String.format(", strength - {0}", getStrength());
+        return super.getInfo() + String.format(", strength: %d", getStrength());
     }
 
     @Override
-    public AllUnits clone() {
+    public AllUnits copy() {
         return new BowmanUnit(this);
     }
 
     @Override
-    public AllUnits Copy() {
+    public AllUnits clone() {
         return new BowmanUnit(this);
     }
 

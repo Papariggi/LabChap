@@ -2,6 +2,7 @@ package units;
 
 import units.observer.Observer;
 import units.observer.ObserverManager;
+import units.observer.Subscriber;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -31,7 +32,7 @@ public abstract class Unit implements AllUnits
             return unit;
         }
 
-        unit.setHealth(unit.getArmor() - (attack - unit.getArmor()));
+        unit.setHealth(unit.getHealth() - (attack - unit.getArmor()));
         unit.setArmor(0);
 
         if(unit.getHealth() < 0)
@@ -40,18 +41,16 @@ public abstract class Unit implements AllUnits
         return unit;
     }
 
-
     public String getInfo()
     {
-        return String.format("{0} - attack {1}, armor - {2}, health - {3}",
+        return String.format("%s - attack: %d, armor: %d, health: %d",
                 getName(), getAttack(), getArmor(), getHealth());
     }
 
     @Override
-    public AllUnits clone() {
+    public AllUnits copy() {
         return null;
     }
-
     @Override
     public void addObserver(Observer observer) {
         this.observer = observer;
@@ -59,12 +58,14 @@ public abstract class Unit implements AllUnits
 
     @Override
     public void removeObserver(Observer observer) {
-        this.observer = null;
+        if (this.observer != null)
+            this.observer = null;
     }
 
     @Override
     public void notifyObs() {
-        observer.handleEvent(this);
+        if (this.observer != null)
+            observer.handleEvent(this);
     }
 
 

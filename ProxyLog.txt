@@ -1,0 +1,49 @@
+Battle. Heavy - attack: 64, armor: 70, health: 100 x Wizard - attack: 38, armor: 17, health: 100, strength: 57. After fight: Wizard - attack: 38, armor: 0, health: 0, strength: 57 .
+Battle. Heavy - attack: 57, armor: 61, health: 100 x Light - attack: 32, armor: 35, health: 100. After fight: Light - attack: 32, armor: 0, health: 13 .
+Battle. Heavy - attack: 66, armor: 71, health: 100 x Light - attack: 43, armor: 29, health: 100. After fight: Light - attack: 43, armor: 0, health: 0 .
+Battle. Heavy - attack: 65, armor: 77, health: 100 x Wizard - attack: 33, armor: 13, health: 100, strength: 80. After fight: Wizard - attack: 33, armor: 0, health: 0, strength: 80 .
+Battle. Heavy - attack: 56, armor: 69, health: 100 x Light - attack: 48, armor: 26, health: 100. After fight: Light - attack: 48, armor: 0, health: 70 .
+Battle. Heavy - attack: 56, armor: 69, health: 100 x Light - attack: 48, armor: 0, health: 70. After fight: Light - attack: 48, armor: 0, health: 14 .
+Battle. Heavy - attack: 56, armor: 69, health: 100 x Light - attack: 48, armor: 0, health: 14. After fight: Light - attack: 48, armor: 0, health: 0 .
+Battle. Heavy - attack: 57, armor: 75, health: 100 x Clearic - attack: 24, armor: 40, health: 100, strength: 81. After fight: Clearic - attack: 24, armor: 0, health: 83, strength: 81 .
+Battle. Heavy - attack: 57, armor: 75, health: 100 x Clearic - attack: 24, armor: -75, health: 83, strength: 81. Opponent has died. 
+Battle. Heavy - attack: 57, armor: 75, health: 100 x Light - attack: 30, armor: -59, health: 100. Opponent has died. 
+Battle. Heavy - attack: 57, armor: 75, health: 100 x Light - attack: 32, armor: 37, health: 100. After fight: Light - attack: 32, armor: 0, health: 80 .
+Battle. Heavy - attack: 57, armor: 75, health: 100 x Light - attack: 32, armor: 0, health: 80. After fight: Light - attack: 32, armor: 0, health: 23 .
+Battle. Heavy - attack: 57, armor: 75, health: 100 x Light - attack: 32, armor: 0, health: 23. Opponent has died. 
+Battle. Heavy - attack: 57, armor: 67, health: 100 x Clearic - attack: 33, armor: 0, health: 53, strength: 64. Opponent has died. 
+Battle. Heavy - attack: 57, armor: 67, health: 100 x Light - attack: 36, armor: 25, health: 100. After fight: Light - attack: 36, armor: 0, health: 68 .
+Battle. Heavy - attack: 57, armor: 67, health: 100 x Light - attack: 36, armor: 0, health: 68. After fight: Light - attack: 36, armor: 0, health: 11 .
+Battle. Heavy - attack: 66, armor: 70, health: 100 x Clearic - attack: 31, armor: 0, health: 2, strength: 64. Opponent has died. 
+Battle. Heavy - attack: 66, armor: 70, health: 100 x Clearic - attack: 25, armor: 20, health: 100, strength: 68. After fight: Clearic - attack: 25, armor: 0, health: 54, strength: 68 .
+Battle. Heavy - attack: 66, armor: 70, health: 100 x Clearic - attack: 25, armor: 0, health: 54, strength: 68. Opponent has died. 
+Battle. Heavy - attack: 66, armor: 70, health: 100 x Bowman - attack: 69, armor: 24, health: 100, strength: 83. After fight: Bowman - attack: 69, armor: 0, health: 58, strength: 83 .
+Battle. Heavy - attack: 66, armor: 70, health: 100 x Bowman - attack: 69, armor: 0, health: 58, strength: 83. Opponent has died. 
+Battle. Heavy - attack: 69, armor: 72, health: 100 x Clearic - attack: 32, armor: 0, health: 84, strength: 75. After fight: Clearic - attack: 32, armor: 0, health: 15, strength: 75 .
+Battle. Heavy - attack: 69, armor: 72, health: 100 x Clearic - attack: 32, armor: 0, health: 15, strength: 75. Opponent has died. 
+Battle. Heavy - attack: 69, armor: 72, health: 100 x Light - attack: 36, armor: 33, health: 100. After fight: Light - attack: 36, armor: 0, health: 64 .
+Battle. Heavy - attack: 69, armor: 72, health: 100 x Light - attack: 36, armor: 0, health: 64. Opponent has died. 
+Battle. Heavy - attack: 69, armor: 72, health: 100 x Light - attack: 44, armor: 29, health: 100. After fight: Light - attack: 44, armor: 0, health: 60 .
+Battle. Heavy - attack: 64, armor: 69, health: 100 x Light - attack: 44, armor: 0, health: 60. Opponent has died. 
+Battle. Heavy - attack: 64, armor: 69, health: 100 x Light - attack: 47, armor: 35, health: 100. After fight: Light - attack: 47, armor: 0, health: 71 .
+Battle. Heavy - attack: 64, armor: 69, health: 100 x Light - attack: 47, armor: 0, health: 71. After fight: Light - attack: 47, armor: 0, health: 7 .
+Battle. Heavy - attack: 64, armor: 69, health: 100 x Light - attack: 47, armor: 0, health: 7. Opponent has died. 
+Battle. Heavy - attack: 70, armor: 73, health: 100 x Light - attack: 31, armor: 29, health: 100. After fight: Light - attack: 31, armor: 0, health: 59 .
+Battle. Heavy - attack: 70, armor: 73, health: 100 x Light - attack: 31, armor: 0, health: 59. Opponent has died. 
+Battle. Heavy - attack: 65, armor: 80, health: 100 x Heavy - attack: 70, armor: 73, health: 100. After fight: Heavy - attack: 70, armor: 73, health: 100 .
+Battle. Heavy - attack: 70, armor: 73, health: 100 x Heavy - attack: 65, armor: 80, health: 100. After fight: Heavy - attack: 65, armor: 80, health: 100 .
+Battle. Heavy - attack: 65, armor: 80, health: 100 x Heavy - attack: 70, armor: 73, health: 100. After fight: Heavy - attack: 70, armor: 73, health: 100 .
+Battle. Heavy - attack: 70, armor: 73, health: 100 x Heavy - attack: 65, armor: 80, health: 100. After fight: Heavy - attack: 65, armor: 80, health: 100 .
+Battle. Heavy - attack: 65, armor: 80, health: 100 x Heavy - attack: 70, armor: 73, health: 100. Opponent has died. 
+Battle. Heavy - attack: 58, armor: 69, health: 100 x Heavy - attack: 65, armor: 80, health: 100. Opponent has died. 
+Battle. Heavy - attack: 58, armor: 69, health: 100 x Light - attack: 35, armor: 27, health: 100. After fight: Light - attack: 35, armor: 0, health: 69 .
+Battle. Heavy - attack: 58, armor: 69, health: 100 x Light - attack: 35, armor: 0, health: 69. After fight: Light - attack: 35, armor: 0, health: 11 .
+Battle. Heavy - attack: 58, armor: 69, health: 100 x Light - attack: 35, armor: 0, health: 11. Opponent has died. 
+Battle. Heavy - attack: 64, armor: 78, health: 100 x Heavy - attack: 58, armor: 69, health: 100. Opponent has died. 
+Battle. Heavy - attack: 67, armor: 61, health: 100 x Light - attack: 43, armor: 25, health: 100. After fight: Light - attack: 43, armor: 0, health: 58 .
+Battle. Heavy - attack: 67, armor: 61, health: 100 x Light - attack: 43, armor: 0, health: 58. Opponent has died. 
+Battle. Heavy - attack: 55, armor: 65, health: 100 x Heavy - attack: 67, armor: 61, health: 100. After fight: Heavy - attack: 67, armor: 61, health: 100 .
+Battle. Heavy - attack: 67, armor: 61, health: 100 x Heavy - attack: 55, armor: 65, health: 100. After fight: Heavy - attack: 55, armor: 65, health: 100 .
+Battle. Heavy - attack: 55, armor: 65, health: 100 x Heavy - attack: 67, armor: 61, health: 100. Opponent has died. 
+Battle. Heavy - attack: 67, armor: 74, health: 100 x Light - attack: 32, armor: 30, health: 100. After fight: Light - attack: 32, armor: 0, health: 63 .
+Battle. Heavy - attack: 63, armor: 75, health: 100 x Light - attack: 42, armor: 30, health: 100. After fight: Light - attack: 42, armor: 0, health: 67 .
